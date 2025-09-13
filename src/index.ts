@@ -2,14 +2,15 @@ import cors from '@fastify/cors';
 import formbody from '@fastify/formbody';
 import helmet from '@fastify/helmet';
 import fastify from 'fastify';
-import pino from 'pino';
 
 const port = Number(3000) || 5001;
 const host = String('localhost');
 
 const server = async () => {
     const server = fastify({
-        logger: pino({ level: process.env.LOG_LEVEL }),
+        logger: {
+            level: process.env.LOG_LEVEL || 'info'
+        }
     });
 
     // Register middlewares

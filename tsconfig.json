@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["es2020"],
-    "module": "commonjs",
+    "module": "ESNext",
     "target": "es2020",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -14,8 +14,13 @@
     "paths": {
       "config/*": ["config/*"]
     },
-    "types": ["node"]
+    "types": ["node"],
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true
   },
   "include": ["src", "test"],
-  "exclude": ["node_modules", "dist", "coverage"]
+  "exclude": ["node_modules", "dist", "coverage"],
+  "ts-node": {
+    "esm": true
+  }
 }
