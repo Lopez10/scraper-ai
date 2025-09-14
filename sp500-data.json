@@ -1,0 +1,182 @@
+[
+  {
+    "rank": 1,
+    "company": "Nvidia",
+    "symbol": "NVDA",
+    "weight": "7.31%",
+    "price": "177.82",
+    "change": "0.65",
+    "percentChange": "(0.37%)"
+  },
+  {
+    "rank": 2,
+    "company": "Microsoft",
+    "symbol": "MSFT",
+    "weight": "6.40%",
+    "price": "509.90",
+    "change": "8.89",
+    "percentChange": "(1.77%)"
+  },
+  {
+    "rank": 3,
+    "company": "Apple Inc.",
+    "symbol": "AAPL",
+    "weight": "5.87%",
+    "price": "234.07",
+    "change": "4.04",
+    "percentChange": "(1.76%)"
+  },
+  {
+    "rank": 4,
+    "company": "Amazon",
+    "symbol": "AMZN",
+    "weight": "4.11%",
+    "price": "228.15",
+    "change": "-1.80",
+    "percentChange": "(-0.78%)"
+  },
+  {
+    "rank": 5,
+    "company": "Meta Platforms",
+    "symbol": "META",
+    "weight": "3.21%",
+    "price": "755.59",
+    "change": "4.69",
+    "percentChange": "(0.62%)"
+  },
+  {
+    "rank": 6,
+    "company": "Broadcom",
+    "symbol": "AVGO",
+    "weight": "2.87%",
+    "price": "359.87",
+    "change": "0.24",
+    "percentChange": "(0.07%)"
+  },
+  {
+    "rank": 7,
+    "company": "Alphabet Inc. (Class A)",
+    "symbol": "GOOGL",
+    "weight": "2.54%",
+    "price": "240.80",
+    "change": "0.43",
+    "percentChange": "(0.18%)"
+  },
+  {
+    "rank": 8,
+    "company": "Alphabet Inc. (Class C)",
+    "symbol": "GOOG",
+    "weight": "2.38%",
+    "price": "241.38",
+    "change": "0.66",
+    "percentChange": "(0.27%)"
+  },
+  {
+    "rank": 9,
+    "company": "Tesla, Inc.",
+    "symbol": "TSLA",
+    "weight": "2.16%",
+    "price": "395.94",
+    "change": "27.13",
+    "percentChange": "(7.36%)"
+  },
+  {
+    "rank": 10,
+    "company": "Berkshire Hathaway",
+    "symbol": "BRK.B",
+    "weight": "1.80%",
+    "price": "493.74",
+    "change": "-3.17",
+    "percentChange": "(-0.64%)"
+  },
+  {
+    "rank": 11,
+    "company": "JPMorgan Chase",
+    "symbol": "JPM",
+    "weight": "1.43%",
+    "price": "306.91",
+    "change": "1.35",
+    "percentChange": "(0.44%)"
+  },
+  {
+    "rank": 12,
+    "company": "Oracle Corporation",
+    "symbol": "ORCL",
+    "weight": "1.40%",
+    "price": "292.18",
+    "change": "-15.68",
+    "percentChange": "(-5.09%)"
+  },
+  {
+    "rank": 13,
+    "company": "Walmart",
+    "symbol": "WMT",
+    "weight": "1.39%",
+    "price": "103.49",
+    "change": "0.84",
+    "percentChange": "(0.82%)"
+  },
+  {
+    "rank": 14,
+    "company": "Lilly (Eli)",
+    "symbol": "LLY",
+    "weight": "1.14%",
+    "price": "755.39",
+    "change": "-0.89",
+    "percentChange": "(-0.12%)"
+  },
+  {
+    "rank": 15,
+    "company": "Visa Inc.",
+    "symbol": "V",
+    "weight": "1.11%",
+    "price": "339.43",
+    "change": "-4.06",
+    "percentChange": "(-1.18%)"
+  },
+  {
+    "rank": 16,
+    "company": "Mastercard",
+    "symbol": "MA",
+    "weight": "0.89%",
+    "price": "580.41",
+    "change": "-8.32",
+    "percentChange": "(-1.41%)"
+  },
+  {
+    "rank": 17,
+    "company": "Netflix",
+    "symbol": "NFLX",
+    "weight": "0.85%",
+    "price": "1,188.44",
+    "change": "-15.06",
+    "percentChange": "(-1.25%)"
+  },
+  {
+    "rank": 18,
+    "company": "ExxonMobil",
+    "symbol": "XOM",
+    "weight": "0.81%",
+    "price": "112.16",
+    "change": "0.02",
+    "percentChange": "(0.02%)"
+  },
+  {
+    "rank": 19,
+    "company": "Costco",
+    "symbol": "COST",
+    "weight": "0.72%",
+    "price": "967.90",
+    "change": "3.58",
+    "percentChange": "(0.37%)"
+  },
+  {
+    "rank": 20,
+    "company": "Johnson & Johnson",
+    "symbol": "JNJ",
+    "weight": "0.72%",
+    "price": "178.06",
+    "change": "-0.44",
+    "percentChange": "(-0.25%)"
+  }
+]
