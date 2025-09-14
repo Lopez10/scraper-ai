@@ -9,8 +9,10 @@ import { ExecuteScrapingJobUseCase } from './application/use-cases/ExecuteScrapi
 import { GetScrapingJobUseCase } from './application/use-cases/GetScrapingJobUseCase.js';
 import { InMemoryScrapingJobRepository } from './infrastructure/repositories/InMemoryScrapingJobRepository.js';
 import { PlaywrightScrapingService } from './infrastructure/scrapers/PlaywrightScrapingService.js';
-import { ScrapingController } from './interfaces/controllers/ScrapingController.js';
+import { LinkedInController } from './interfaces/controllers/LinkedInController.js';
+import { NewsController } from './interfaces/controllers/NewsController.js';
 import { SP500Controller } from './interfaces/controllers/SP500Controller.js';
+import { ScrapingController } from './interfaces/controllers/ScrapingController.js';
 
 const port = Number(process.env.PORT) || 3000;
 const host = process.env.HOST || 'localhost';
@@ -42,6 +44,8 @@ const server = async () => {
     );
 
     const sp500Controller = new SP500Controller();
+    const newsController = new NewsController();
+    const linkedinController = new LinkedInController();
 
     // Set error handler
     server.setErrorHandler((error, _request, reply) => {
@@ -75,6 +79,10 @@ const server = async () => {
                 'GET /api/scraping/jobs/:jobId': 'Obtener información de un job',
                 'POST /api/sp500/scrape': 'Scraping completo del S&P 500',
                 'GET /api/sp500/top-gainers': 'Top empresas ganadoras del S&P 500',
+                'POST /api/news/xataka': 'Scraping de noticias de Xataka',
+                'POST /api/news/article': 'Extraer contenido de un artículo específico',
+                'POST /api/linkedin/profile': 'Scraping de perfil de LinkedIn (requiere credenciales)',
+                'POST /api/linkedin/posts': 'Scraping de posts de LinkedIn (requiere credenciales)',
                 'GET /health': 'Health check'
             }
         });
@@ -100,6 +108,24 @@ const server = async () => {
 
     server.get('/api/sp500/top-gainers', (request, reply) =>
         sp500Controller.getTopGainers(request, reply)
+    );
+
+    // News API routes
+    server.post('/api/news/xataka', (request, reply) =>
+        newsController.scrapeXataka(request, reply)
+    );
+
+    server.post('/api/news/article', (request, reply) =>
+        newsController.scrapeArticleContent(request, reply)
+    );
+
+    // LinkedIn API routes
+    server.post('/api/linkedin/profile', (request, reply) =>
+        linkedinController.scrapeLinkedInProfile(request, reply)
+    );
+
+    server.post('/api/linkedin/posts', (request, reply) =>
+        linkedinController.scrapeLinkedInPosts(request, reply)
     );
 
     // Graceful shutdown

@@ -68,15 +68,40 @@ export class SP500Controller {
                 let etfs: any[] = [];
                 if (includeETFs) {
                     try {
-                        const spyPrice = await page.textContent('table:last-of-type tbody tr:nth-child(1) td:nth-child(3)');
-                        const qqqPrice = await page.textContent('table:last-of-type tbody tr:nth-child(2) td:nth-child(3)');
-                        const diaPrice = await page.textContent('table:last-of-type tbody tr:nth-child(3) td:nth-child(3)');
+                        // Buscar todas las tablas y encontrar la que contiene ETFs
+                        const tables = await page.$$('table');
+                        let etfTable = null;
 
-                        etfs = [
-                            { symbol: 'SPY', name: 'S&P 500 ETF', price: spyPrice?.trim() || '' },
-                            { symbol: 'QQQ', name: 'Nasdaq 100 ETF', price: qqqPrice?.trim() || '' },
-                            { symbol: 'DIA', name: 'Dow Jones ETF', price: diaPrice?.trim() || '' }
-                        ];
+                        for (const table of tables) {
+                            const tableText = await table.textContent();
+                            if (tableText && tableText.includes('SPY') && tableText.includes('QQQ')) {
+                                etfTable = table;
+                                break;
+                            }
+                        }
+
+                        if (etfTable) {
+                            const spyPrice = await etfTable.$eval('tbody tr:nth-child(1) td:nth-child(3)', el => el.textContent?.trim() || '');
+                            const qqqPrice = await etfTable.$eval('tbody tr:nth-child(2) td:nth-child(3)', el => el.textContent?.trim() || '');
+                            const diaPrice = await etfTable.$eval('tbody tr:nth-child(3) td:nth-child(3)', el => el.textContent?.trim() || '');
+
+                            etfs = [
+                                { symbol: 'SPY', name: 'S&P 500 ETF', price: spyPrice },
+                                { symbol: 'QQQ', name: 'Nasdaq 100 ETF', price: qqqPrice },
+                                { symbol: 'DIA', name: 'Dow Jones ETF', price: diaPrice }
+                            ];
+                        } else {
+                            // Fallback: buscar en la última tabla
+                            const spyPrice = await page.textContent('table:last-of-type tbody tr:nth-child(1) td:nth-child(3)');
+                            const qqqPrice = await page.textContent('table:last-of-type tbody tr:nth-child(2) td:nth-child(3)');
+                            const diaPrice = await page.textContent('table:last-of-type tbody tr:nth-child(3) td:nth-child(3)');
+
+                            etfs = [
+                                { symbol: 'SPY', name: 'S&P 500 ETF', price: spyPrice?.trim() || '' },
+                                { symbol: 'QQQ', name: 'Nasdaq 100 ETF', price: qqqPrice?.trim() || '' },
+                                { symbol: 'DIA', name: 'Dow Jones ETF', price: diaPrice?.trim() || '' }
+                            ];
+                        }
                     } catch (error) {
                         console.warn('Error extrayendo ETFs:', error);
                     }
