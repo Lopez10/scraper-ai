@@ -125,7 +125,7 @@ async function main() {
         password: 'tu-contraseña'
     };
 
-    const profileUrl = 'https://www.linkedin.com/in/carla-gimenez-rodriguez/';
+    const profileUrl = 'https://www.linkedin.com/in';
 
     try {
         const posts = await scrapeLinkedInPosts(profileUrl, credentials, 5);

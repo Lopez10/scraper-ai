@@ -59,7 +59,7 @@ const server = async () => {
             reply.status(200).send({
                 message: 'Health check endpoint success.',
                 timestamp: new Date().toISOString(),
-                service: 'inversion-scraper'
+                service: 'scraper'
             });
         } catch (e) {
             reply.status(500).send({
@@ -71,7 +71,7 @@ const server = async () => {
     // Root route
     server.get('/', (request, reply) => {
         reply.status(200).send({
-            message: 'Inversion Scraper API',
+            message: 'Scraper API',
             version: '1.0.0',
             endpoints: {
                 'POST /api/scraping/jobs': 'Crear un nuevo job de scraping',
